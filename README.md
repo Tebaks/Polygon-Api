@@ -1,5 +1,5 @@
-[![Unit Tests](https://github.com/Tebaks/Polygon-Api/actions/workflows/unit-test.yaml/badge.svg)](https://github.com/Tebaks/Polygon-Api/actions/workflows/unit-tests.yaml)
-[![Functional Tests](https://github.com/Tebaks/Polygon-Api/actions/workflows/functional-test.yaml/badge.svg)](https://github.com/Tebaks/Polygon-Api/actions/workflows/functional-tests.yaml)
+[![Unit Tests](https://github.com/Tebaks/Polygon-Api/actions/workflows/unit-tests.yaml/badge.svg)](https://github.com/Tebaks/Polygon-Api/actions/workflows/unit-tests.yaml)
+[![Functional Tests](https://github.com/Tebaks/Polygon-Api/actions/workflows/functional-tests.yaml/badge.svg)](https://github.com/Tebaks/Polygon-Api/actions/workflows/functional-tests.yaml)
 
 ---
 # Polygon API
