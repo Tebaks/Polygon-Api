@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  mongodb:
+    image: mongo:5.0
+    ports:
+      - 27017:27017
+    volumes:
+      - ~/apps/mongo:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=test
+    restart: always
+
+  api:
+    build: .
+    image: polygon_app
+    depends_on:
+      - mongodb
+    ports:
+      - 8080:8080
+    restart: always

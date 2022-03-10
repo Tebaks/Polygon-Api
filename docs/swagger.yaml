@@ -1,0 +1,115 @@
+definitions:
+  handler.CreateNewPolygonRequest:
+    properties:
+      vertices:
+        items:
+          $ref: '#/definitions/polygon.Vertex'
+        type: array
+    type: object
+  handler.Response:
+    properties:
+      data: {}
+      error:
+        type: string
+      success:
+        type: boolean
+    type: object
+  polygon.Polygon:
+    properties:
+      area:
+        example: 12.5
+        type: number
+      name:
+        example: Polygon_3_a2cd24
+        type: string
+      vertices:
+        items:
+          $ref: '#/definitions/polygon.Vertex'
+        type: array
+    type: object
+  polygon.Vertex:
+    properties:
+      x:
+        example: 1
+        type: number
+      "y":
+        example: 2
+        type: number
+    type: object
+info:
+  contact:
+    email: kenanabbak@hotmail.com
+    name: Kenan Abbak
+    url: www.kenanabbak.com
+  description: This is a API for Polygon.
+  title: Polygon API
+  version: "1.0"
+paths:
+  /polygon/:
+    post:
+      consumes:
+      - application/json
+      description: Create new polygon
+      parameters:
+      - description: Create new polygon info
+        in: body
+        name: CreateNewPolygonRequest
+        required: true
+        schema:
+          $ref: '#/definitions/handler.CreateNewPolygonRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/polygon.Polygon'
+                error:
+                  type: string
+                success:
+                  type: boolean
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.Response'
+      tags:
+      - polygon
+  /polygon/{name}:
+    get:
+      consumes:
+      - application/json
+      description: Get polygon by name
+      parameters:
+      - description: name
+        in: path
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/handler.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/polygon.Polygon'
+                error:
+                  type: string
+                success:
+                  type: boolean
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handler.Response'
+      tags:
+      - polygon
+swagger: "2.0"
